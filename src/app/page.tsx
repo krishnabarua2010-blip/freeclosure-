@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import InfinityGrid from "@/components/InfinityGrid";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,19 +78,8 @@ export default function LandingPage() {
   return (
     <div ref={containerRef} className="min-h-screen bg-[#050505] text-gray-200 selection:bg-gray-700/50 overflow-x-hidden">
       
-      {/* 3D GRID BACKGROUND */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-[0.15]">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] [transform:perspective(1000px)_rotateX(60deg)_translateY(-100px)_translateZ(-200px)] animate-[grid-move_15s_linear_infinite]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-gray-500/10 blur-[120px] rounded-full mix-blend-screen" />
-      </div>
-
-      <style jsx global>{`
-        @keyframes grid-move {
-          0% { background-position: 0 0; }
-          100% { background-position: 0 40px; }
-        }
-      `}</style>
+      {/* 3D INFINITE MESH GRID BACKGROUND */}
+      <InfinityGrid />
 
       {/* NAVIGATION */}
       <nav className="fixed top-0 w-full z-50 glass-dark border-b border-white/5 backdrop-blur-md">
